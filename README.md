@@ -60,7 +60,7 @@ banashankar-tatalagera-subscription-tracker/
 ```
 
 
-
+-----
 🧰 Tech Stack
 
     Node.js + Express – Core API framework
@@ -77,31 +77,48 @@ banashankar-tatalagera-subscription-tracker/
 
     Upstash – Workflows & queues
 
+------------
+
 ⚙️ Installation
 
+```bash
 git clone https://github.com/Banashankar-Tatalagera/subscription-tracker.git
 cd subscription-tracker
 npm install
+```
+
+-----
+
 
 🔐 Environment Setup
 
 Create a .env file in the root:
 
+```
 PORT=5500
 MONGO_URI=mongodb://localhost:27017/subdub
 JWT_SECRET=your_jwt_secret
 EMAIL_USER=youremail@example.com
 EMAIL_PASS=yourpassword
+```
 
-▶️ Running the Server
 
-Start in Development:
+▶️ **Running the Server**
 
+_Start in Development:_
+
+```bash
 npm run dev
+```
+---
+---
+_Start in Production:_
 
-Start in Production:
-
+```bash
 npm start
+```
+---
+
 
 🔒 Authentication
 
@@ -109,18 +126,26 @@ All protected routes require a Bearer token.
 
 Auth Routes:
 
-POST /api/v1/auth/register
-POST /api/v1/auth/login
+
+```bash
+POST /api/v1/auth/sign-up     # User registration
+POST /api/v1/auth/sign-in     # User login
+POST /api/v1/auth/sign-out    # User logout (client discards token)
+```
+
+---------
 
 Header Format:
 
 Authorization: Bearer <your_token>
 
-📡 API Endpoints
+📡 **API Endpoints**
+---
 ➕ Create Subscription
 
-POST /api/v1/subscriptions
-
+```POST /api/v1/subscriptions```
+---
+```text
 Request Body:
 
 {
@@ -132,7 +157,8 @@ Request Body:
   "startDate": "2025-06-23T00:00:00.000Z",
   "paymentMethod": "Credit Card"
 }
-
+```
+----
 Sample Response:
 
 {
@@ -143,29 +169,29 @@ Sample Response:
     "renewalDate": "2025-07-23T00:00:00.000Z"
   }
 }
+----
 
-👤 Get User Info
-
+👤 **Get User Info**
+```text
 GET /api/v1/users/:userId
-
-🚫 Unauthorized Access Example
-
+```
+🚫 **Unauthorized Access Example**
 When no token is provided:
-
+```text
 {
   "message": "Unauthorized"
 }
+```
 
-🧪 Linting
+---------------
+🧪 **Linting**
 
 npx eslint .
+Uses ESLint 9 and @eslint/js config.
 
-    Uses ESLint 9 and @eslint/js config.
+-------
 
-------------------------------
 
-Banashankar Tatalagera
-GitHub: @Banashankar-Tatalagera
 ## 📸 Screenshots
 
 ### ➕ Subscription Creation
@@ -178,4 +204,3 @@ GitHub: @Banashankar-Tatalagera
 ![Fetch Subscriptions](./screenshots/subscription_fetch.png)
 
 
----
